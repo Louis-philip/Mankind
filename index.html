@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mankind</title>
+    <link rel="icon" type="image/x-icon" href="Mankind pfp (1).svg">
+    <style>
+        body {
+            font-family: "Georgia", serif;
+            background-color: #f9f6ef;
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            text-align: center;
+            padding: 20px 10px;
+            border-bottom: 2px solid #ccc;
+        }
+
+        header img {
+            max-width: 100%;
+            height: auto;
+            max-height: 10em; /* Matches the original text size for responsiveness */
+        }
+
+        header p {
+            font-size: 1.2em;
+            margin-top: 5px;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: row;
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 10px;
+        }
+
+        .main-content {
+            flex: 3;
+            padding: 10px;
+        }
+
+        .sidebar {
+            flex: 1;
+            border-left: 1px solid #ccc;
+            padding: 10px;
+            margin-left: 10px;
+        }
+
+        .article {
+            margin-bottom: 25px;
+        }
+
+        .article h2 {
+            font-size: 1.8em;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .article a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .article a:hover {
+            text-decoration: underline;
+        }
+
+        .sidebar h3 {
+            display: inline-block;
+            font-size: 1.4em;
+            margin-right: 5px;
+        }
+
+        .sidebar h3 img {
+            vertical-align: middle;
+            width: 1.7em; /* Increased size to be slightly bigger than the text */
+            height: auto;
+        }
+
+        .sidebar a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .sidebar a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px 0;
+            border-top: 2px solid #ccc;
+            margin-top: 20px;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="mk_logo_main.png" alt="Mankind Logo">
+    </header>
+    <div class="container">
+        <div class="main-content" id="articles">
+            <!-- Articles will be loaded here dynamically -->
+        </div>
+        <aside class="sidebar">
+            <h3><a href="manifesto.html">Manifesto <img src="mfst_logo.png" alt="About Icon"></a></h3>
+            <p>A description of our vision.</p>
+            <h3>Archives</h3>
+            <ul>
+                <li>November 2024</li>
+                <li>October 2024</li>
+                <li>September 2024</li>
+            </ul>
+        </aside>
+    </div>
+    <footer>
+        <p>&copy; 2024 Mankind Media. All rights reserved.</p>
+    </footer>
+    <script>
+        // Fetch articles from JSON file and render them
+        fetch('articles.json')
+            .then(response => response.json())
+            .then(articles => {
+                const articlesContainer = document.getElementById('articles');
+                articles.forEach(article => {
+                    const articleDiv = document.createElement('div');
+                    articleDiv.className = 'article';
+                    articleDiv.innerHTML = `
+                        <h2><a href="${article.link}">${article.title}</a></h2>
+                        <p>${article.description}</p>
+                    `;
+                    articlesContainer.appendChild(articleDiv);
+                });
+            })
+            .catch(error => console.error('Error loading articles:', error));
+    </script>
+</body>
+</html>
