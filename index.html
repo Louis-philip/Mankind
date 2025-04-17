@@ -71,6 +71,13 @@
             text-decoration: underline;
         }
 
+        .article-date {
+            font-style: italic;
+            color: #666;
+            margin-top: 5px;
+            font-size: 0.9em;
+        }
+
         .sidebar h3 {
             display: inline-block;
             font-size: 1.4em;
@@ -89,6 +96,20 @@
         }
 
         .sidebar a:hover {
+            text-decoration: underline;
+        }
+
+        .explore-button {
+            display: inline-block;
+            color: #333;
+            text-decoration: none;
+            margin-top: 10px;
+            font-size: 1.1em;
+            transition: color 0.3s;
+        }
+
+        .explore-button:hover {
+            color: #666;
             text-decoration: underline;
         }
 
@@ -112,16 +133,13 @@
         <aside class="sidebar">
             <h3><a href="manifesto.html">About Us <img src="mfst_logo.png" alt="About Icon"></a></h3>
             <p>A description of our vision.</p>
-            <h3>Archives</h3>
-            <ul>
-                <li>November 2024</li>
-                <li>October 2024</li>
-                <li>September 2024</li>
-            </ul>
+            <h3>Discover More</h3>
+            <p>Find all our articles in one place.</p>
+            <a href="explore.html" class="explore-button">Explore All →</a>
         </aside>
     </div>
     <footer>
-        <p>&copy; 2024 Mankind Media. All rights reserved.</p>
+        <p>&copy; 2025 Mankind Media. All rights reserved.</p>
     </footer>
     <script>
         // Fetch articles from JSON file and render them
@@ -135,6 +153,7 @@
                     articleDiv.innerHTML = `
                         <h2><a href="${article.link}">${article.title}</a></h2>
                         <p>${article.description}</p>
+                        <p class="article-date">${article.date || '01/01/2024'}</p>
                     `;
                     articlesContainer.appendChild(articleDiv);
                 });

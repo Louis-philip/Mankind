@@ -25,7 +25,30 @@
             margin: 0;
         }
 
+        .article-date {
+            text-align: center;
+            font-style: italic;
+            color: #666;
+            margin-top: 5px;
+            font-size: 1em;
+        }
+
+        .back-arrow {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 1.5em;
+            color: #333;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .back-arrow:hover {
+            color: #666;
+        }
+
         .container {
+            position: relative;
             max-width: 900px;
             margin: 20px auto;
             padding: 10px;
@@ -33,6 +56,11 @@
 
         .content {
             text-align: left;
+        }
+
+        .back-link {
+            margin-top: 30px;
+            display: block;
         }
 
         footer {
@@ -47,14 +75,16 @@
 <body>
     <header>
         <h1>Article Title 1</h1>
+        <div class="article-date">15/04/2024</div>
     </header>
     <div class="container">
+        <a href="index.html" class="back-arrow">←</a>
         <div class="content">
             <p>pois ent tome</p>
         </div>
     </div>
     <footer>
-        <p>&copy; 2024 Mankind Media. All rights reserved.</p>
+        <p>&copy; 2025 Mankind Media. All rights reserved.</p>
     </footer>
 </body>
 </html>
